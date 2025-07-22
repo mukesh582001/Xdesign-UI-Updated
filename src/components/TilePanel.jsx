@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import MaterialPanel from "./MaterialPanel"; // new component for left side detail panel
 
-export default function TilePanel() {
+export default function TilePanel({ showToast, onLayerConfirmed }) {
   const designOptions = [
     { label: "Cabinets", value: "Avalon Painted White" },
     { label: "Countertops", value: "Ethereal Haze" },
@@ -21,6 +21,10 @@ export default function TilePanel() {
       setIsMounted(true);
     });
   }, []);
+
+  const handleCloseMaterialPanel = () => {
+    setActiveIndex(null);
+  };
 
   return (
     <>
@@ -59,7 +63,12 @@ export default function TilePanel() {
       </div>
 
       {activeIndex !== null && (
-        <MaterialPanel title={designOptions[activeIndex].label} />
+        <MaterialPanel
+          title={designOptions[activeIndex].label}
+          showToast={showToast}
+          onClose={handleCloseMaterialPanel}
+          onConfirm={() => { onLayerConfirmed && onLayerConfirmed(); }}
+        />
       )}
     </>
   );

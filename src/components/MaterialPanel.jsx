@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 
-export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm, onBack }) {
+export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm, onBack, onClose, showToast }) {
   const cabinetOptions = [
     { name: "Avalon Painted White", color: "#f3f4f6" },
     { name: "Avalon Painted Blue", color: "#3b82f6" },
@@ -40,7 +40,7 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
             style={{ backgroundColor: selected.color }}
           >
             <button
-              onClick={onBack}
+              onClick={() => { onBack && onBack(); onClose && onClose(); }}
               className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm bg-white/30 text-blue-600 rounded"
               title="Go Back"
             >
@@ -143,13 +143,13 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
         <div className="flex justify-between items-center gap-2">
           <button
             className="w-full py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
-            onClick={onCancel}
+            onClick={() => { onCancel && onCancel(); onClose && onClose(); }}
           >
             Cancel
           </button>
           <button
             className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
-            onClick={() => onConfirm(selected)}
+            onClick={() => { onConfirm && onConfirm(selected); showToast && showToast('Changes Applied!', '1 tile(s) have been applied to your design.'); onClose && onClose(); }}
           >
             Confirm Selection
           </button>
