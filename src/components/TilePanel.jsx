@@ -1,0 +1,66 @@
+
+import { useEffect, useState } from "react";
+import MaterialPanel from "./MaterialPanel"; // new component for left side detail panel
+
+export default function TilePanel() {
+  const designOptions = [
+    { label: "Cabinets", value: "Avalon Painted White" },
+    { label: "Countertops", value: "Ethereal Haze" },
+    { label: "Wall Tile", value: "Multitude Wave 12x25 Origami White" },
+    { label: "Shower Pan", value: "Union 2x3 Platinum White" },
+    { label: "Flooring", value: "Union 12x24 Platinum White" },
+    { label: "Plumbing", value: "Hnt/Pitch Package Chrome" },
+    { label: "Hardware", value: "Knobs – Madison Knob: Polished Chrome" },
+  ];
+
+  const [isMounted, setIsMounted] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      setIsMounted(true);
+    });
+  }, []);
+
+  return (
+    <>
+      <div
+        className={`absolute top-0 left-0 z-50 w-[300px] max-h-[89vh] overflow-y-auto scrollbar-hide p-4 space-y-4 rounded-md pointer-events-auto transform transition-transform duration-500 ease-in-out 
+        ${isMounted ? "translate-x-4 opacity-100" : "-translate-x-full opacity-0"}`}
+      >
+        {/* Kitchen Title */}
+        <div className=" text-white font-semibold text-2xl rounded-md p-3 pb-0">
+          SOHO BATHROOM
+        </div>
+        <div className="bg-slate-100 text-center font-semibold text-lg rounded-md p-3">
+          Bathroom
+        </div>
+
+        {/* Option Cards */}
+        {designOptions.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className={`bg-white border rounded-lg shadow-sm p-3 cursor-pointer hover:shadow-md transition ${
+              activeIndex === index ? "border-blue-500" : ""
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-14 h-14 bg-gray-200 rounded-md flex items-center justify-center text-xs text-gray-500">
+                IMG
+              </div>
+              <div>
+                <h4 className="font-semibold text-sm">{item.label}</h4>
+                <p className="text-xs text-gray-500">{item.value}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {activeIndex !== null && (
+        <MaterialPanel title={designOptions[activeIndex].label} />
+      )}
+    </>
+  );
+}
