@@ -196,10 +196,29 @@ export default function Home() {
     className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="Send Inquiry"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 0a2 2 0 00-2 2v8a2 2 0 002 2h18a2 2 0 002-2v-8a2 2 0 00-2-2" />
-    </svg>
-    Inquiry
+<svg
+    width="20px"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z"
+      fill="#ffffff"
+    ></path>
+    <path
+      d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+      stroke="#ffffff"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    ></path>
+    <path
+      d="M12 14C12 13.8333 12 13.6667 12 13.5C12 13.5 12 12 14 11C16 10 15.5 7 12.5 7C9.5 7 9.5 9.5 9.5 9.5V10"
+      stroke="#ffffff"
+      strokeWidth="2"
+    ></path>
+  </svg>    Inquiry
   </button>
 
   {/* Download Image Button */}
@@ -228,7 +247,7 @@ export default function Home() {
 
 </div>
  {/* Branding */}
-      <div className="absolute bottom-4 right-4 bg-[#00000047] white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow text-xs text-black border border-white/20">
+      <div className="absolute bottom-4 right-8 bg-[#00000047] white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow text-xs text-white border border-white/20">
         <p>Designed and Developed by <span className="font-semibold">Biorev Studio</span></p>
         <p>Developed for <span className="font-semibold">Timbercraft Homes</span></p>
       </div>
