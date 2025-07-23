@@ -53,7 +53,7 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
           <div className="flex flex-col text-sm">
             <p className="text-gray-600 font-semibold tracking-wide">CONFIRMED SELECTION</p>
             <p className="font-semibold text-gray-800 truncate max-w-[180px]">Layer: {selected.name}</p>
-            <p className="font-semibold text-gray-800 truncate max-w-[180px]">Manufacturer: Xyz</p>
+            <p className="font-semibold text-gray-800 truncate max-w-[180px]">Manufacturer: Servin</p>
             <p className="font-semibold text-gray-800 truncate max-w-[180px]">ID: Chirag123</p>
           </div>
         </div>

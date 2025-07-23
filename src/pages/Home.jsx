@@ -10,24 +10,29 @@ export default function Home() {
   const [showInquiry, setShowInquiry] = useState(false);
   const [unsavedChanges, setUnsavedChanges] = useState(false);
   const [showUnsavedModal, setShowUnsavedModal] = useState(false);
+  const handleClose = () => setShowUnsavedModal(false);
 
   const showToast = (title, description = '', type = 'success') => setToast({ title, description, type });
 
   // Download image logic
-  const handleDownloadImage = () => {
-    const imgURL = "https://www.neilkelly.com/wp-content/uploads/2019/10/Mcnown-Residence-22s.jpg";
-    const link = document.createElement("a");
-    link.href = imgURL;
-    link.download = "bathroom-design.jpg";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast("Image downloaded!", "Image downloaded successfully!");
-  };
+  // const handleDownloadImage = () => {
+  //   const imgURL = "https://www.neilkelly.com/wp-content/uploads/2019/10/Mcnown-Residence-22s.jpg";
+  //   const link = document.createElement("a");
+  //   link.href = imgURL;
+  //   link.download = "bathroom-design.jpg";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  //   showToast("Image downloaded!", "Image downloaded successfully!");
+  // };
 
   // Download PDF logic (simple, just downloads the image as PDF)
   const handleDownloadPDF = () => {
-    showToast("PDF download started (demo only)", "PDF download initiated for demonstration.");
+    showToast("PDF download started ", "PDF download initiated for demonstration.");
+    // In real app, use html2pdf or jsPDF to export the preview as PDF
+  };
+  const handleDownloadImage = () => {
+    showToast("Image download started ", "Image download initiated for demonstration.");
     // In real app, use html2pdf or jsPDF to export the preview as PDF
   };
 
@@ -159,27 +164,73 @@ export default function Home() {
       </button>
 
       {/* Floating action buttons (right) */}
-      <div className="absolute top-1/2 right-8 flex flex-col gap-4 z-40 -translate-y-1/2">
-        <button onClick={() => setShowFAQ(true)} className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-xl rounded-xl px-4 py-2 font-semibold text-base hover:scale-105 transition-transform duration-150 border-2 border-white/80" title="FAQ">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" /></svg>
-          FAQ
-        </button>
-        <button onClick={() => setShowHelp(true)} className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-700 text-white shadow-xl rounded-xl px-4 py-2 font-semibold text-base hover:scale-105 transition-transform duration-150 border-2 border-white/80" title="Help">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z" /></svg>
-          Help
-        </button>
-        <button onClick={() => setShowInquiry(true)} className="flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-700 text-white shadow-xl rounded-xl px-4 py-2 font-semibold text-base hover:scale-105 transition-transform duration-150 border-2 border-white/80" title="Send Inquiry">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 12H8m0 0l4-4m-4 4l4 4" /></svg>
-          Inquiry
-        </button>
-        <button onClick={handleDownloadImage} className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-white shadow-xl rounded-xl px-4 py-2 font-semibold text-base hover:scale-105 transition-transform duration-150 border-2 border-white/80" title="Download Image">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" /></svg>
-          Image
-        </button>
-        <button onClick={handleDownloadPDF} className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-pink-700 text-white shadow-xl rounded-xl px-4 py-2 font-semibold text-base hover:scale-105 transition-transform duration-150 border-2 border-white/80" title="Download as PDF">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>
-          PDF
-        </button>
+     <div className="absolute top-2/3 right-8 flex flex-col gap-4 z-40 -translate-y-1/2">
+
+  {/* FAQ Button */}
+  <button
+    onClick={() => setShowFAQ(true)}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    title="FAQ"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6a3 3 0 00-2.83 4h1.58a1.5 1.5 0 113 0c0 1.5-2.25 1.5-2.25 3v.5M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18z" />
+    </svg>
+    FAQ
+  </button>
+
+  {/* Help Button */}
+  <button
+    onClick={() => setShowHelp(true)}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    title="Help"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 5.636a9 9 0 11-12.728 0m12.728 0A9 9 0 005.636 18.364M12 8v4m0 4h.01" />
+    </svg>
+    Help
+  </button>
+
+  {/* Inquiry Button */}
+  <button
+    onClick={() => setShowInquiry(true)}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    title="Send Inquiry"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 0a2 2 0 00-2 2v8a2 2 0 002 2h18a2 2 0 002-2v-8a2 2 0 00-2-2" />
+    </svg>
+    Inquiry
+  </button>
+
+  {/* Download Image Button */}
+  <button
+    onClick={handleDownloadImage}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    title="Download Image"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" />
+    </svg>
+    Image
+  </button>
+
+  {/* Download PDF Button */}
+  <button
+    onClick={handleDownloadPDF}
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    title="Download PDF"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+    </svg>
+    PDF
+  </button>
+
+</div>
+ {/* Branding */}
+      <div className="absolute bottom-4 right-4 bg-[#00000047] white/10 backdrop-blur-sm px-4 py-2 rounded-lg shadow text-xs text-black border border-white/20">
+        <p>Designed and Developed by <span className="font-semibold">Biorev Studio</span></p>
+        <p>Developed for <span className="font-semibold">Timbercraft Homes</span></p>
       </div>
 
       {/* Conditional tile panel */}
@@ -189,54 +240,193 @@ export default function Home() {
 
       {/* FAQ Modal */}
       {showFAQ && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-2">Frequently Asked Questions</h2>
-            <ul className="text-sm mb-4 list-disc pl-5">
-              <li>How do I edit the bathroom? Click the blue edit button.</li>
-              <li>How do I save my design? Click the green save button.</li>
-              <li>How do I download my design? Use the download buttons on the right.</li>
-            </ul>
-            <button onClick={() => setShowFAQ(false)} className="w-full py-2 rounded bg-blue-600 text-white">Close</button>
-          </div>
-        </div>
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+  <div className="bg-[#00000047] backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl w-[90%] max-w-md text-white relative">
+    
+    <h2 className="text-xl font-bold mb-4">Frequently Asked Questions</h2>
+    
+    <div className="space-y-4 text-sm">
+      <div>
+        <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
+</svg> How do I edit the bathroom?</p>
+        <p className="text-white/80">Click the blue pencil icon next to the bathroom section to open the editor panel.</p>
+      </div>
+      <div>
+        <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
+</svg> How do I save my design?</p>
+        <p className="text-white/80">Click the green “Save” button on the top-right to store your current layout and changes.</p>
+      </div>
+      <div>
+        <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
+</svg> How do I download my design?</p>
+        <p className="text-white/80">Use the “Download Image” or “Download PDF” buttons from the floating right-side toolbar.</p>
+      </div>
+      <div>
+        <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
+</svg> Can I reset the design?</p>
+        <p className="text-white/80">Yes, use the reset icon to revert everything back to the original layout.</p>
+      </div>
+    </div>
+
+    <button
+      onClick={() => setShowFAQ(false)}
+      className="mt-6 w-full py-2 rounded-xl bg-white/20 hover:bg-white/30 transition-all duration-200 text-white font-semibold border border-white/30"
+    >
+      Close
+    </button>
+
+    {/* Close "X" button in top-right corner */}
+    <button
+      onClick={() => setShowFAQ(false)}
+      className="absolute top-4 right-4 text-white/70 hover:text-white text-xl"
+      aria-label="Close"
+    >
+      &times;
+    </button>
+  </div>
+</div>
+
       )}
       {/* Help Modal */}
       {showHelp && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-2">Help</h2>
-            <p className="text-sm mb-4">For assistance, please contact support@example.com or use the inquiry form.</p>
-            <button onClick={() => setShowHelp(false)} className="w-full py-2 rounded bg-blue-600 text-white">Close</button>
-          </div>
-        </div>
+       <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
+  <div className="relative bg-[#00000047] backdrop-blur-xl text-white rounded-2xl shadow-2xl border border-white/30 p-6 w-[22rem]">
+    
+    {/* Close Button */}
+    <button 
+      onClick={() => setShowHelp(false)} 
+      className="absolute top-3 right-3 text-white hover:text-red-300 transition"
+      title="Close"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    {/* Title */}
+    <h2 className="text-lg font-bold mb-3">Help</h2>
+
+    {/* Help Text */}
+    <p className="text-sm text-white/90">
+      For assistance, contact us at <a href="mailto:support@example.com" className="underline text-blue-200 hover:text-blue-300">support@example.com</a> or use the inquiry form.
+    </p>
+
+    {/* Bottom Close Button */}
+    <button 
+      onClick={() => setShowHelp(false)} 
+      className="mt-6 w-full py-2 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold"
+    >
+      Close
+    </button>
+  </div>
+</div>
+
       )}
       {/* Inquiry Modal */}
       {showInquiry && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-2">Send Inquiry</h2>
-            <form onSubmit={e => { e.preventDefault(); setShowInquiry(false); }}>
-              <input type="text" placeholder="Your Name" className="w-full mb-2 px-3 py-2 border rounded" required />
-              <input type="email" placeholder="Your Email" className="w-full mb-2 px-3 py-2 border rounded" required />
-              <textarea placeholder="Message" className="w-full mb-2 px-3 py-2 border rounded" required />
-              <button type="submit" className="w-full py-2 rounded bg-blue-600 text-white">Send</button>
-            </form>
-            <button onClick={() => setShowInquiry(false)} className="w-full mt-2 py-2 rounded bg-gray-200 text-gray-700">Cancel</button>
-          </div>
-        </div>
+        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50">
+  <div className="relative bg-[#00000047] backdrop-blur-xl border border-white/20 text-white rounded-2xl shadow-2xl px-8 py-6 w-[90%] max-w-xl">
+    
+    {/* Close Button */}
+    <button
+      onClick={() => setShowInquiry(false)}
+      className="absolute top-4 right-4 text-white hover:text-red-300 transition"
+      title="Close"
+    >
+      ✕
+    </button>
+
+    {/* Title */}
+    <h2 className="text-xl font-bold mb-6">Inquiry Details</h2>
+
+    {/* Form */}
+    <form onSubmit={e => { e.preventDefault(); setShowInquiry(false); }}>
+      <div className="flex gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Name*"
+          required
+          className="flex-1 bg-white/20 placeholder-white/80 text-white border border-white/30 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white/50"
+        />
+        <input
+          type="tel"
+          placeholder="Phone*"
+          required
+          className="flex-1 bg-white/20 placeholder-white/80 text-white border border-white/30 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-white/50"
+        />
+      </div>
+      <input
+        type="email"
+        placeholder="Email*"
+        required
+        className="w-full bg-white/20 placeholder-white/80 text-white border border-white/30 rounded-md px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-white/50"
+      />
+      <textarea
+        placeholder="Message"
+        required
+        rows="4"
+        className="w-full bg-white/20 placeholder-white/80 text-white border border-white/30 rounded-md px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+      />
+      <div className="flex justify-end">
+        <button
+          type="submit"
+          className="px-6 py-2 rounded-full bg-black text-white border border-white/40 shadow-md hover:bg-white hover:text-black transition font-semibold"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
       )}
       {/* Unsaved changes modal */}
       {showUnsavedModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold mb-4">Do you want to save your changes?</h2>
-            <div className="flex gap-4 mt-6">
-              <button onClick={handleDiscard} className="flex-1 py-2 rounded bg-gray-200 text-gray-700 font-semibold">Discard</button>
-              <button onClick={handleSaveAndClose} className="flex-1 py-2 rounded bg-blue-600 text-white font-semibold">Save and Close</button>
-            </div>
-          </div>
-        </div>
+ <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+  <div className="relative bg-[#00000047] backdrop-blur-xl border border-white/20 p-6 rounded-2xl shadow-2xl w-80 text-white">
+
+    {/* Close Button */}
+    <button
+      onClick={handleClose}
+      className="absolute top-3 right-3 text-white hover:text-red-300 transition duration-200"
+      title="Close"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <h2 className="text-lg font-bold mb-4">Do you want to save your changes?</h2>
+
+    <div className="flex gap-4 mt-6">
+      <button
+        onClick={handleDiscard}
+        className="flex-1 py-2 rounded-xl bg-white/20 hover:bg-white/30 transition-all duration-200 text-white font-semibold border border-white/30"
+      >
+        Discard
+      </button>
+      <button
+        onClick={handleSaveAndClose}
+        className="flex-1 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 transition-all duration-200 text-white font-semibold shadow-md"
+      >
+        Save and Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
       )}
     </div>
   );
