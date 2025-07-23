@@ -39,7 +39,7 @@ export default function EditRoom() {
 
         {/* Save Button */}
         <button
-          onClick={() => alert("Bathroom Saved!")}
+          onClick={() => alert("Kitchen Saved!")}
           className="mt-6 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-full"
         >
           <svg
@@ -54,15 +54,15 @@ export default function EditRoom() {
               clipRule="evenodd"
             />
           </svg>
-          Save Bathroom
+          Save Kitchen
         </button>
       </div>
 
       {/* Preview Image - Right */}
       <div className="flex-1 relative">
         <img
-          src="https://www.neilkelly.com/wp-content/uploads/2019/10/Mcnown-Residence-22s.jpg"
-          alt="Bathroom"
+          src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpegg"
+          alt="Kitchen Preview"
           className="w-full h-full object-cover"
         />
 

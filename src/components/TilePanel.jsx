@@ -33,12 +33,12 @@ export default function TilePanel({ showToast, onLayerConfirmed }) {
         ${isMounted ? "translate-x-4 opacity-100" : "-translate-x-full opacity-0"}`}
       >
         {/* Kitchen Title */}
-        <div className=" text-white font-semibold text-2xl rounded-md p-3 pb-0">
-          SOHO BATHROOM
+        <div className="bg-slate-100  font-semibold text-lg rounded-md p-3 text-center">
+          SOHO KITCHEN
         </div>
-        <div className="bg-slate-100 text-center font-semibold text-lg rounded-md p-3">
-          Bathroom
-        </div>
+        {/* <div className="bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200 text-center font-semibold text-lg rounded-md p-3">
+          Kitchen
+        </div> */}
 
         {/* Option Cards */}
         {designOptions.map((item, index) => (
@@ -73,3 +73,4 @@ export default function TilePanel({ showToast, onLayerConfirmed }) {
     </>
   );
 }
+ 

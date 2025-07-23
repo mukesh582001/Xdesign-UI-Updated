@@ -73,14 +73,15 @@ export default function Home() {
   const handleSaveBathroom = () => {
     setUnsavedChanges(false);
     setShowTiles(false);
-    showToast('Layers are updated to your SOHO bathroom.');
+    showToast('Layers are updated to your SOHO Kitchen.');
   };
 
   return (
     <div className="relative w-full h-screen bg-white">
       <img
-        src="https://www.neilkelly.com/wp-content/uploads/2019/10/Mcnown-Residence-22s.jpg"
-        alt="Bathroom preview"
+        // src="https://www.neilkelly.com/wp-content/uploads/2019/10/Mcnown-Residence-22s.jpg"
+        // src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
+src="https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg"        alt="Kitchen preview"
         className="w-full h-full object-cover"
       />
 {showTiles && (
@@ -106,7 +107,7 @@ export default function Home() {
       <button
         onClick={() => setShowTiles(showTiles ? false : true)}
         className="absolute bottom-6 left-8 bg-blue-600 text-white pt-[0.65rem] pr-[0.65rem] pb-[0.65rem] pl-[.55rem] rounded-full flex items-center justify-center shadow-lg border-2 border-white hover:bg-blue-700 transition-colors duration-200"
-        title={showTiles ? "Back" : "Edit Bathroom"}
+        title={showTiles ? "Back" : "Edit Kitchen"}
       >
         {showTiles ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -160,7 +161,7 @@ export default function Home() {
               fillRule="evenodd"
               d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l7.293-7.293a1 1 0 011.414 0z"
               clipRule="evenodd"
-            /> </svg> Save Bathroom
+            /> </svg> Save Kitchen
       </button>
 
       {/* Floating action buttons (right) */}
@@ -169,7 +170,7 @@ export default function Home() {
   {/* FAQ Button */}
   <button
     onClick={() => setShowFAQ(true)}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="FAQ"
   >
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -181,7 +182,7 @@ export default function Home() {
   {/* Help Button */}
   <button
     onClick={() => setShowHelp(true)}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="Help"
   >
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -193,7 +194,7 @@ export default function Home() {
   {/* Inquiry Button */}
   <button
     onClick={() => setShowInquiry(true)}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="Send Inquiry"
   >
 <svg
@@ -224,7 +225,7 @@ export default function Home() {
   {/* Download Image Button */}
   <button
     onClick={handleDownloadImage}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="Download Image"
   >
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -236,11 +237,11 @@ export default function Home() {
   {/* Download PDF Button */}
   <button
     onClick={handleDownloadPDF}
-    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-white/10 backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
     title="Download PDF"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12" />
     </svg>
     PDF
   </button>
@@ -268,26 +269,27 @@ export default function Home() {
       <div>
         <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
-</svg> How do I edit the bathroom?</p>
-        <p className="text-white/80">Click the blue pencil icon next to the bathroom section to open the editor panel.</p>
+</svg> How do I edit the Kitchen?</p>
+        <p className="text-white/80 ml-6">Click the blue pencil icon next to the kitchen section to open the editor panel.</p>
       </div>
+      <hr />
       <div>
         <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
 </svg> How do I save my design?</p>
-        <p className="text-white/80">Click the green “Save” button on the top-right to store your current layout and changes.</p>
-      </div>
+        <p className="text-white/80 ml-6">Click the blue “Save” button on the top-right to store your current layout and changes.</p>
+      </div><hr />
       <div>
         <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
 </svg> How do I download my design?</p>
-        <p className="text-white/80">Use the “Download Image” or “Download PDF” buttons from the floating right-side toolbar.</p>
-      </div>
+        <p className="text-white/80 ml-6">Use the “Download Image” or “Download PDF” buttons from the floating right-side toolbar.</p>
+      </div><hr />
       <div>
         <p className="font-semibold"><svg xmlns="http://www.w3.org/2000/svg" className="inline w-4 h-4 mr-1 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 17h.01M12 3a9 9 0 100 18 9 9 0 000-18zM12 13v-2a2 2 0 10-2-2" />
 </svg> Can I reset the design?</p>
-        <p className="text-white/80">Yes, use the reset icon to revert everything back to the original layout.</p>
+        <p className="text-white/80 ml-6">Yes, use the reset icon to revert everything back to the original layout.</p>
       </div>
     </div>
 
@@ -331,7 +333,7 @@ export default function Home() {
 
     {/* Help Text */}
     <p className="text-sm text-white/90">
-      For assistance, contact us at <a href="mailto:support@example.com" className="underline text-blue-200 hover:text-blue-300">support@example.com</a> or use the inquiry form.
+      For assistance, contact us at <a href="mailto:support@example.com" className="underline text-blue-200 hover:text-blue-300 font-semibold">biorev@studio.com</a> or use the inquiry form.
     </p>
 
     {/* Bottom Close Button */}
