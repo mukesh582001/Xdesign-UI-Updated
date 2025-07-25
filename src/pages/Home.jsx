@@ -166,7 +166,7 @@ const toggleFullPreview = () => {
           {/* Edit button */}
           <button
             onClick={() => setShowTiles(showTiles ? false : true)}
-            className="absolute bottom-6 left-8 border-2 border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20  text-white pt-[0.65rem] pr-[0.65rem] pb-[0.65rem] pl-[.55rem] rounded-full flex items-center justify-center  border-white hover:bg-blue-700 transition-colors duration-200"
+            className="absolute bottom-6 left-8 border-2 border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20  text-white pt-[0.65rem] pr-[0.65rem] pb-[0.65rem] pl-[.55rem] rounded-full flex items-center justify-center   hover:bg-blue-700 transition-colors duration-200"
             title={showTiles ? "Back" : "Edit Kitchen"}
           >
             {showTiles ? (
