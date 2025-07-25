@@ -28,39 +28,38 @@ export default function TilePanel({ showToast, onLayerConfirmed }) {
 
   return (
     <>
-      <div
-        className={`absolute top-0 left-0 z-50 w-[300px] max-h-[89vh] overflow-y-auto scrollbar-hide p-4 space-y-4 rounded-md pointer-events-auto transform transition-transform duration-500 ease-in-out 
-        ${isMounted ? "translate-x-4 opacity-100" : "-translate-x-full opacity-0"}`}
-      >
-        {/* Kitchen Title */}
-        <div className="bg-slate-100  font-semibold text-lg rounded-md p-3 text-center">
-          SOHO KITCHEN
-        </div>
-        {/* <div className="bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200 text-center font-semibold text-lg rounded-md p-3">
-          Kitchen
-        </div> */}
+     <div
+  className={`absolute top-[50px] left-0 z-50 w-[300px] p-4 space-y-4 rounded-md pointer-events-auto transform transition-transform duration-500 ease-in-out 
+    ${isMounted ? "translate-x-4 opacity-100" : "-translate-x-full opacity-0"}`}
+>
+  {/* Kitchen Title */}
+  <div className="bg-slate-100 font-semibold text-lg rounded-md p-3 text-center">
+    SOHO KITCHEN
+  </div>
 
-        {/* Option Cards */}
-        {designOptions.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => setActiveIndex(index)}
-            className={`bg-white border rounded-lg shadow-sm p-3 cursor-pointer hover:shadow-md transition ${
-              activeIndex === index ? "border-blue-500" : ""
-            }`}
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-14 h-14 bg-gray-200 rounded-md flex items-center justify-center text-xs text-gray-500">
-                IMG
-              </div>
-              <div>
-                <h4 className="font-semibold text-sm">{item.label}</h4>
-                <p className="text-xs text-gray-500">{item.value}</p>
-              </div>
-            </div>
+  {/* Scrollable Tile Options */}
+  <div className="max-h-[68vh] overflow-y-auto scrollbar-hide space-y-2">
+    {designOptions.map((item, index) => (
+      <div
+        key={index}
+        onClick={() => setActiveIndex(index)}
+        className={`bg-white border rounded-lg shadow-sm p-3 cursor-pointer hover:shadow-md transition ${
+          activeIndex === index ? "border-blue-500" : ""
+        }`}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-14 h-14 bg-gray-200 rounded-md flex items-center justify-center text-xs text-gray-500">
+            IMG
           </div>
-        ))}
+          <div>
+            <h4 className="font-semibold text-sm">{item.label}</h4>
+            <p className="text-xs text-gray-500">{item.value}</p>
+          </div>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
 
       {activeIndex !== null && (
         <MaterialPanel

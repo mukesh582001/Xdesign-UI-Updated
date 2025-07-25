@@ -70,7 +70,7 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
           <div className="flex gap-2">
             <button
               onClick={() => setShowSearch(!showSearch)}
-              className="flex items-center gap-1 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 hover:bg-gray-100"
+              className="flex items-center  text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 hover:bg-gray-100"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
                   d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"
                 />
               </svg>
-              <span>Search</span>
+              {/* <span>Search</span> */}
             </button>
             <button
               onClick={() => setSortAsc(!sortAsc)}
@@ -135,22 +135,50 @@ export default function MaterialPanel({ title = "Cabinets", onCancel, onConfirm,
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full p-4">
+      {/* <div className="absolute bottom-0 left-0 w-full p-4">
         <div className="flex justify-between items-center gap-2">
           <button
-            className="w-full py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300"
+            className="w-full py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-lg border-2 border-gray-800 hover:border-gray-400"
             onClick={() => { onCancel && onCancel(); onClose && onClose(); }}
           >
             Cancel
           </button>
           <button
-            className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+            className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg border-2 border-gray-800 hover:border-blue-500"
             onClick={() => { onConfirm && onConfirm(selected); showToast && showToast('Changes Applied!', '1 tile(s) have been applied to your design.'); onClose && onClose(); }}
           >
             Confirm Selection
           </button>
         </div>
-      </div>
+      </div> */}
+      <div className="absolute bottom-0 left-0 w-full p-4 bg-white border-t-4">
+  <div className="flex justify-between items-center gap-2">
+    <button
+      className="w-full py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 shadow-lg border-2 border-gray-800 hover:border-gray-400"
+      onClick={() => {
+        onCancel && onCancel();
+        onClose && onClose();
+      }}
+    >
+      Cancel
+    </button>
+    <button
+      className="w-full py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow-lg border-2 border-gray-800 hover:border-blue-500"
+      onClick={() => {
+        onConfirm && onConfirm(selected);
+        showToast &&
+          showToast(
+            'Changes Applied!',
+            '1 tile(s) have been applied to your design.'
+          );
+        onClose && onClose();
+      }}
+    >
+      Confirm Selection
+    </button>
+  </div>
+</div>
+
     </div>
   );
 }
