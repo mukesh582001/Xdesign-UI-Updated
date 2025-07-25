@@ -24,7 +24,7 @@ export default function Toast({ title, description, message, onClose, duration =
   const borderColor = type === 'error' ? 'border-red-500' : 'border-green-500';
 
   return (
-    <div className={`fixed bottom-8 right-8 z-50 flex items-start min-w-[280px] max-w-xs bg-white border-l-4 ${borderColor} shadow-xl rounded-lg px-5 py-4 animate-slide-in`}>
+    <div className={`fixed bottom-10 right-8 z-50 flex items-start min-w-[280px] max-w-xs bg-white border-l-4 ${borderColor} shadow-xl rounded-lg px-5 py-4 animate-slide-in`}>
       {icon}
       <div className="flex-1">
         <div className="text-base font-bold text-gray-900 mb-1">{title || message}</div>
