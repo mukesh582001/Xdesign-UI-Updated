@@ -208,34 +208,62 @@ const toggleFullPreview = () => {
             </svg>
           </button>
 
-          {/* Save button */}
-          <button
-            onClick={handleSaveBathroom}
-            className="absolute bottom-6 left-[6rem] border-2 border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200 text-white px-4 py-2 rounded-full flex items-center gap-2  border-white  "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-white"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+          {/* Bottom left: Edit and Save Kitchen buttons */}
+          <div className="absolute bottom-6 left-8 flex items-center gap-4 z-40">
+            {/* Edit button (pencil icon) */}
+            <button
+              onClick={() => setShowTiles(showTiles ? false : true)}
+              className="border-2 border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 text-white pt-[0.65rem] pr-[0.65rem] pb-[0.65rem] pl-[.55rem] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors duration-200"
+              title={showTiles ? "Back" : "Edit Kitchen"}
             >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg> Save Kitchen
-          </button>
+              {showTiles ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-white"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                  <path
+                    fillRule="evenodd"
+                    d="M4 16a1 1 0 011-1h11a1 1 0 110 2H5a1 1 0 01-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </button>
+            {/* Save Kitchen button */}
+            <button
+              onClick={handleSaveBathroom}
+              className="border-2 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200 text-white px-4 py-2 rounded-full flex items-center gap-2 border-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 011.414-1.414L8.414 12.172l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg> Save Kitchen
+            </button>
+          </div>
 
-          {/* Floating action buttons (right) */}
-          <div className="absolute top-[64.666667%] right-8 flex flex-col gap-4 z-40 -translate-y-1/2">
-            {/* Show buttons based on state */}
+          {/* Bottom center: All other action buttons */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-40">
+            {/* Action buttons beside Save Kitchen */}
             {(!showTiles && !showUndoRedo) && (
-              <div className="flex flex-col gap-4">
-                {/* Preview Button */}
+              <>
                 <button
                   onClick={toggleFullPreview}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                   title="Full Preview"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -243,10 +271,9 @@ const toggleFullPreview = () => {
                   </svg>
                   Preview
                 </button>
-                {/* Inquiry Button */}
                 <button
                   onClick={() => setShowInquiry(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                   title="Send Inquiry"
                 >
                   <svg width="20px" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -255,10 +282,9 @@ const toggleFullPreview = () => {
                     <path d="M12 14C12 13.8333 12 13.6667 12 13.5C12 13.5 12 12 14 11C16 10 15.5 7 12.5 7C9.5 7 9.5 9.5 9.5 9.5V10" stroke="#ffffff" strokeWidth="2"></path>
                   </svg> Inquiry
                 </button>
-                {/* Share Button */}
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                   title="Share"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -267,11 +293,10 @@ const toggleFullPreview = () => {
                   </svg>
                   Share
                 </button>
-                {/* Download Image Button (after save) */}
                 {showDownload && (
                   <button
                     onClick={handleDownloadImage}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                     title="Download Image"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -280,14 +305,23 @@ const toggleFullPreview = () => {
                     Image
                   </button>
                 )}
-              </div>
+              </>
             )}
             {(showTiles && !showUndoRedo) && (
-              <div className="flex flex-col gap-4">
-                {/* FAQ Button */}
+              <>
+               <button
+                  onClick={toggleFullPreview}
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  title="Full Preview"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  Preview
+                </button>
                 <button
                   onClick={() => setShowFAQ(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                   title="FAQ"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -295,10 +329,9 @@ const toggleFullPreview = () => {
                   </svg>
                   FAQ
                 </button>
-                {/* Inquiry Button */}
                 <button
                   onClick={() => setShowInquiry(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:backdrop-blur-xl hover:bg-white/20 transition-all duration-200"
                   title="Send Inquiry"
                 >
                   <svg width="20px" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -307,37 +340,33 @@ const toggleFullPreview = () => {
                     <path d="M12 14C12 13.8333 12 13.6667 12 13.5C12 13.5 12 12 14 11C16 10 15.5 7 12.5 7C9.5 7 9.5 9.5 9.5 9.5V10" stroke="#ffffff" strokeWidth="2"></path>
                   </svg> Inquiry
                 </button>
-              </div>
+              </>
             )}
             {showUndoRedo && (
-              <div className="flex flex-col gap-4">
-                {/* Undo Button */}
+              <>
                 <button
                   onClick={handleUndo}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:bg-white/20 transition-all duration-200"
                   title="Undo"
                 >
-                  {/* New Undo SVG: Arrow U-turn Left */}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 14l-4-4 4-4" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M20 20v-7a4 4 0 00-4-4H5" />
                   </svg>
                   Undo
                 </button>
-                {/* Redo Button */}
                 <button
                   onClick={handleRedo}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white/30 bg-[#00000047] backdrop-blur-md shadow-lg hover:bg-white/20 transition-all duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-white font-semibold text-base border border-white bg-[#00000047] backdrop-blur-md shadow-lg hover:bg-white/20 transition-all duration-200"
                   title="Redo"
                 >
-                  {/* New Redo SVG: Arrow U-turn Right */}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4 4-4 4" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v7a4 4 0 004 4h11" />
                   </svg>
                   Redo
                 </button>
-              </div>
+              </>
             )}
           </div>
 
