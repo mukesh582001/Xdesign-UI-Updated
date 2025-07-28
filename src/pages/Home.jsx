@@ -5,6 +5,17 @@ import Toast from "../components/Toast";
 import removed from "../assets/removed.png"; // Assuming you have an image for branding
 import timber from "../assets/timber rem.png"; // Assuming you have an image for branding
 export default function Home() {
+  React.useEffect(() => {
+    const handleFullscreenChange = () => {
+      if (!document.fullscreenElement) {
+        setFullPreview(false);
+      }
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
   const [showTiles, setShowTiles] = useState(false);
   const [showDownload, setShowDownload] = useState(false);
   const [showUndoRedo, setShowUndoRedo] = useState(false);
