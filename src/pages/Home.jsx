@@ -180,7 +180,7 @@ const toggleFullPreview = () => {
           )}
 
           {/* Back button (edit mode) */}
-          // ...existing code...
+          
 
           {/* Show cross and Save Kitchen buttons only in edit mode */}
           {showTiles && (
@@ -464,7 +464,7 @@ const toggleFullPreview = () => {
               ✕
             </button>
             <h2 className="text-xl font-bold mb-6">Inquiry Details</h2>
-            <form onSubmit={e => { e.preventDefault(); setShowInquiry(false); }}>
+            <form onSubmit={e => { e.preventDefault(); setShowInquiry(false); showToast('Inquiry sent!', 'Thank you for reaching out. We will contact you soon.', 'success'); }}>
               <div className="flex gap-4 mb-4">
                 <input
                   type="text"
