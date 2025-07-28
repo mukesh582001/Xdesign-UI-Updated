@@ -35,8 +35,8 @@ export default function TilePanel({ showToast, onLayerConfirmed }) {
           ${isMounted ? "translate-x-4 opacity-100" : "-translate-x-full opacity-0"}`}
       >
         {/* Enhanced Kitchen Title with gradient and glow */}
-        <div 
-          className={`relative bg-white text-slate-800 font-bold text-base rounded-2xl p-4 text-center shadow-lg border-2 border-slate-200 backdrop-blur-sm transform transition-all duration-500 delay-100 ${
+        <div
+          className={`relative bg-white text-slate-800 font-bold text-base rounded-2xl text-center shadow-lg border-2 border-slate-200 backdrop-blur-sm transform transition-all duration-500 delay-100 w-full px-4 py-2 mx-0 ${
             isMounted ? "scale-100 opacity-100" : "scale-95 opacity-0"
           }`}
         >
