@@ -36,13 +36,13 @@ export default function TilePanel({ showToast, onLayerConfirmed }) {
       >
         {/* Enhanced Kitchen Title with gradient and glow */}
         <div 
-          className={`relative bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 text-white font-bold text-lg rounded-xl p-4 text-center shadow-2xl border border-slate-600/50 backdrop-blur-sm transform transition-all duration-500 delay-100 ${
+          className={`relative bg-white text-slate-800 font-bold text-lg rounded-xl p-4 text-center shadow-2xl border border-slate-200 backdrop-blur-sm transform transition-all duration-500 delay-100 ${
             isMounted ? "scale-100 opacity-100" : "scale-95 opacity-0"
           }`}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20 rounded-xl blur-sm"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-50 via-white to-slate-50 rounded-xl"></div>
           <div className="relative z-10 tracking-wide">SOHO KITCHEN</div>
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/30 to-transparent"></div>
         </div>
 
         {/* Enhanced Scrollable Tile Options */}
